@@ -1,2 +1,2 @@
 /*    /index.html   200
-/api/  http://backend-ecommerce.atwebpages.com/:splat   200
+/api/*  http://backend-ecommerce.atwebpages.com/index.php  200
