@@ -1,2 +1,10 @@
 /*    /index.html   200
-/api/*  https://backend-ecommerce.atwebpages.com/index.php  200
+
+[[redirects]]
+  from = "/api/*"
+  to = "https://backend-ecommerce.atwebpages.com/index.php/:splat"
+  status = 200
+  force = true
+  headers = [
+    "X-Content-Type-Options: nosniff"
+  ]
