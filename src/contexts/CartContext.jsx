@@ -24,28 +24,39 @@ const cartReducer = (state, action) => {
         ...state,
         cart: action.payload
       };
-    case ACTIONS.ADD_TO_CART: {
-      const { product, selectedAttributes } = action.payload;
-      const existingItemIndex = state.cart.findIndex(item => 
-        item.id === product.id &&
-        JSON.stringify(item.selectedAttributes) === JSON.stringify(selectedAttributes)
-      );
-      
-      if (existingItemIndex !== -1) {
-        const updatedCart = [...state.cart];
-        updatedCart[existingItemIndex].quantity += 1;
-        return { ...state, cart: updatedCart };
-      } else {
-        return { 
-          ...state, 
-          cart: [...state.cart, {
-            ...product,
-            selectedAttributes,
-            quantity: 1
-          }]
-        };
+      case ACTIONS.ADD_TO_CART: {
+        const { product, selectedAttributes } = action.payload;
+        const existingItemIndex = state.cart.findIndex(item => 
+          item.id === product.id &&
+          JSON.stringify(item.selectedAttributes) === JSON.stringify(selectedAttributes)
+        );
+        
+        if (existingItemIndex !== -1) {
+          // Create a new array and explicitly set the quantity to the previous value + 1
+          const updatedCart = state.cart.map((item, index) => {
+            if (index === existingItemIndex) {
+              // Force an increment of exactly 1
+              return {
+                ...item,
+                quantity: item.quantity + 1
+              };
+            }
+            return item;
+          });
+          
+          return { ...state, cart: updatedCart };
+        } else {
+          // This part seems fine
+          return { 
+            ...state, 
+            cart: [...state.cart, {
+              ...product,
+              selectedAttributes,
+              quantity: 1
+            }]
+          };
+        }
       }
-    }
     case ACTIONS.REMOVE_FROM_CART: {
       const newCart = [...state.cart];
       newCart.splice(action.payload, 1);

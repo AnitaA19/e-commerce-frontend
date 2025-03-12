@@ -27,8 +27,11 @@ function ProductCard({ productId }) {
                     }
                 });
             }
-             addToCart(product, defaultSelectedAttributes);
-
+            
+            // Add a console.log to debug
+            console.log('Adding to cart:', product.name);
+            
+            addToCart(product, defaultSelectedAttributes);
         }
     };
     
@@ -43,12 +46,14 @@ function ProductCard({ productId }) {
                     {!product.inStock && <div className={styles.outOfStockMessage}>Out of Stock</div>}
                     
                     {product.inStock && (
-                        <div 
+                        <button
                             className={styles.cartIconOverlay}
                             onClick={handleAddToCart}
+                            // Add this line to explicitly prevent default behavior
+                            onMouseDown={(e) => e.preventDefault()}
                         >
                             <CartSVG />
-                        </div>
+                        </button>
                     )}
                 </div>
             </Link>
