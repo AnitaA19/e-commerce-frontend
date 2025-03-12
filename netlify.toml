@@ -3,10 +3,3 @@
   to = "https://backend-ecommerce.atwebpages.com/index.php/:splat"
   status = 200
   force = true
-
-
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
-  force = true
