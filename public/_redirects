@@ -1,8 +1,2 @@
 /* /index.html 200
 
-[[redirects]]
-  from = "/api/*"
-  to = "http://backend-ecommerce.atwebpages.com/:splat"
-  status = 200
-  force = true
-  headers = {X-Forwarded-Proto = "https"}
