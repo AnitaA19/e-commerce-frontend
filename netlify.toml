@@ -5,8 +5,3 @@
   force = true
   headers = {X-Forwarded-Proto = "https"}
 
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
-  force = true
