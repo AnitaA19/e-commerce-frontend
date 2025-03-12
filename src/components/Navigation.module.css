@@ -1,0 +1,41 @@
+.navList {     
+    list-style: none;     
+    display: flex;     
+    gap: 2rem; 
+}  
+
+.navLink:link, .navLink:visited {     
+    text-transform: uppercase;     
+    color: #1D1F22;     
+    text-decoration: none;     
+    font-size: 1.6rem;     
+    position: relative; 
+}  
+
+.navLink:hover, .navLink:active {    
+    color: var(--color-brand--1); 
+}  
+
+.navLink::after {
+    content: "";
+    position: absolute;
+    left: 50%; 
+    bottom: -3rem;
+    width: 0; 
+    height: 0.2rem;
+    background-color: var(--color-brand--1);
+    transform: translateX(-50%); 
+    transition: width 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    opacity: 0;
+}
+
+.navLink:hover::after,
+.navLink.active::after {
+    width: 140%; 
+    opacity: 1;
+}
+
+.navLink.active {
+    font-weight: bold;
+    color: var(--color-brand--1);
+}

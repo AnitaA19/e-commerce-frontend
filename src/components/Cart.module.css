@@ -1,0 +1,34 @@
+.cartContainer {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+  }
+  
+  .cart {
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+  }
+  
+  .cartBadge {
+    position: absolute;
+    top: -1rem;
+    right: -1rem;
+    background-color: #000;
+    color: white;
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    font-weight: 700;
+  }
+
+  button {
+    all: unset;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
